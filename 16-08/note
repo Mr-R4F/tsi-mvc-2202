@@ -1,0 +1,28 @@
+Paradigmas, Principios e Design Pattern
+
+- declarativa/imperativa
+
+- solid/grasp - principios..
+
+- m, s/ afetar
+
+- - composer create-project laravel/laravel
+
+- gerenciador de dependencias / projetos
+
+public - local onde toda a aplicação vai ser chamada (vai ser exposto)
+
+- m - model ligada aos dados => app -> models
+- v - ligado ao usuário - resources -> view
+- c - fluxo de dados (regras de negócio) -> app -> http -> controllers
+
+artisan - faz tudo
+php artisan serve
+
+cria um projeto 
+composer create-project laravel/laravel
+
+script php ...
+blade - gerenciado de templates
+-> flexível
+-> sintaxe identica ao PHP
