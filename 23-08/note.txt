@@ -1,0 +1,74 @@
+kernel - núcleo do laravel
+APP.PHP - inicializa o framework
+.env- config do ambiente
+database -> migrations (migrações) -> serve para a criação de itens do banco de dados, cria determinado item para o banco de dados
+Ao criar um ambiente...  mexe em tudo o que é estrutura (versionamento de alterações no banco).
+
+Seeders -> serve p/ popular o banco de dados
+public -> diretório a ser configurado no servidor web, e a ser exposto. Evita que o código php apareca na tela
+
+resources -> html, css, e js
+views -> interface do usuário
+
+blade -> programa de php.
+
+nome.blade.php -> o lavarel sabe que é uma view
+
+routes -> rotas (endereços)
+channels - rota -> streaming
+console -> comandos de console
+storage -> templates do blade
+
+tests -> teste unitários -> 
+vendor - dependencias são instaladas pelo composer
+
+orm -> torna a migração entre bancos ainda mais fácil (rescreve toda a parte do banco)
+-> problema devido a sintaxe dos bancos
+
+Eloquent  orm do laravel
+models - descrição do dados no BD(camada de persistencias)
+migrations - alteram o BD
+criar BD -> configura no .env (porta e database)
+
+criar model - necessário namespace
+php artisan make:o-que-quer-criar nome-da-model
+dizer as colunas na tabela pela model
+protected- só usa quem herda
+nome na migration devem coinsidir
+se não por o nome da tabela o eloquent pode criar uma table com o nome da classe.
+Diferencia letras maiusculas de minusculas
+
+P/ colocar mais paramêtros
+
+
+criar migrations
+'' make -> nome da migration --create=nometabela
+
+table -> nome ou método (int, string ...) do campo	
+
+php artisan mgirate -> conexão com o banco
+se não for colocado algo o ID é padrão com chave primaria
+criar várias outras tabelas ao ser executado
+
+php -a teste de coisas rápidas
+ferramenta de terminal do laravel facilita na consulta e cadastro rápido das coisas ->php artisan tinker
+
+chamar a namespace para trabalhar com a model
+-> no terminal App\Models\nome-da-tabela::[método declarado como estático, pode ser usando sem instânciar a classe]all() -> geralmente volta um
+vetor vazio
+" create(); ->espera receber um vetor com o nome da tabela e coluna ['nome-da-coluna' => 'valor']
+
+ver todos os itens da tabela
+
+App\Models\Personagens::all(); -mostra tudo
+App\Models\Personagens::find(); -> acha algum ID específico
+===========================
+fica na memória mais ao atualizar o laravel é necessário reiciniciar o terminal
+trabalhar relacionamentos com o eloquant
+
+du -sch loja/
+
+->timestamps -> cria 2 colunas -> é quando o registro foi criado na tabela data de criação e registro
+
+unsigned() -> para campo número (armazena apenas positivo) (armazena +)
+
