@@ -72,3 +72,8 @@ du -sch loja/
 
 unsigned() -> para campo número (armazena apenas positivo) (armazena +)
 
+tinker - interage com as models
+
+trabalhar com as classews
+
+join caso queira saber se uma coisa de uma tabela está na outra

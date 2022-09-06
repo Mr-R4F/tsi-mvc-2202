@@ -53,7 +53,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->char('nome');
-            $table->char('matricula');
+            $table->char('descricao');
             $table->double('preco', 12, 2);
         });
 

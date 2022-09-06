@@ -13,8 +13,9 @@ class produtosVenda extends Model
         'id',
         'idVenda',
         'idProduto',
+        'quantidade',
         'valor'
     ];
 
-    protected $table = 'produtosVenda';
+    protected $table = 'produtovendas';
 }
