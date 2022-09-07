@@ -1,0 +1,6 @@
+//Relacionamentos
+
+
+app -. Models
+find(1) -acha o val (procura o valor)
+hasMany
