@@ -1,0 +1,29 @@
+//controle de acesso (necessário dependencia) -> composer require laravel/ui --dev (para criar tela de login)
+bootstrap para recursos visuais php artisan ui boostrap (rodar o npm install e npm run dev para compilar
+/ controllers
+
+crud
+
+cria controle para crud
+php artisan make:controller clicnetesController --resource (para criar o controle)
+
+token
+
+//buscar os dados na model
+
+rota resource -para funcionar como crud
+ver como controla e como cria um controle para perfil de usuário e controlar as funcionalidades
+//
+pacotes do blade para lidar comas as classes html
+acesso por perfil apenas o can permite isso
+
+view::clear - limpa o cache das views
+migration meche no banco
+
+criar o CRUD php artisan make:controller vendedoresController -- resource (criar CRUD)
+encapsular
+cp -r (copia de forma recursiva) varre a arvore de diretórios e o que achar de clientes vai mandar para vendedoresclientes vendedores -r
+necessário ESTAR NA PSTA VIEWS
+
+VIEW E VALIDATE
+(PLACE HOLDER)
