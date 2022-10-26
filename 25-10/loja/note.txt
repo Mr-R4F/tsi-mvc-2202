@@ -1,0 +1,200 @@
+//Anteriores
+
+//controle de acesso (necessário dependencia) -> composer require laravel/ui --dev (para criar tela de login)
+bootstrap para recursos visuais php artisan ui boostrap (rodar o npm install e npm run dev para compilar
+/ controllers
+
+crud
+
+cria controle para crud
+php artisan make:controller clicnetesController --resource (para criar o controle)
+
+token
+
+//buscar os dados na model
+
+rota resource -para funcionar como crud
+ver como controla e como cria um controle para perfil de usuário e controlar as funcionalidades
+//
+pacotes do blade para lidar comas as classes html
+acesso por perfil apenas o can permite isso
+
+view::clear - limpa o cache das views
+migration meche no banco
+
+criar o CRUD php artisan make:controller vendedoresController -- resource (criar CRUD)
+encapsular
+cp -r (copia de forma recursiva) varre a arvore de diretórios e o que achar de clientes vai mandar para vendedoresclientes vendedores -r
+necessário ESTAR NA PSTA VIEWS
+
+VIEW E VALIDATE
+(PLACE HOLDER)
+
+===========================================================================================================================
+04-10
+
+composer require laravel/breeze --dev (dependencia para ter autenticação dependencia necessária para funcionar autenticação
+php artisan breeze:install -> instala o breeze
+
+npm install && npm run dev -> prepara toda a parte da tela de login
+
+composer require spatie/laravel-permission -> cria controles de acesso por permissão (adm, clientes ...)
+composer require laravelcollective/html
+
+PREPARAÇÃO
+colocar o provider em config/ app.php
+colocar o arqv de configuração em config/permission.php e criar migration
+php artisan vendor:publish --provider=Spatie\Permission\PermissionServiceProvider -> entra do app.php
+php artisan migrate
+
+registrar o middleware do pacote -> programas a serem chamadados no controller (entre a aplicação e requisição, controla determinada coisa)
+app -> http -> kernel -> root middleware
+add os 3 middlewares
+'role' =>\Spatie\Permission\Middlewares\RoleMiddleware::class,
+'permission' =>\Spatie\Permission\Middlewares\PermissionMiddleware::class,
+'role_or_permission' =>\Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+
+na model user.php (a que vem com os items do usuário) é preciso add trait HasRules (o php não pode herdar de duas classes)
+trait HasRules -> herda um classe mesmo já tendo herdado de outra classe
+
+criar controllers para usuário e papéis (perfis)
+
+php artisan make:controller UserController --resource -> fazer a controler
+fazer no CRUD
+
+--
+para hash usar ndo laravel
+
+=========
+11 -10
+
+acesso de perfil - determina o acesso do perfil
+
+criar RoleController ->
+
+um perfil possui acesso a várias coisas
+ou a apenas algumas coisas
+o método e disponibilizada de acordo com a permissão
+
+pegar os perfis da index para mostra na view (muda de acordo c/ o perfil)
+
+após isso php artisan serve
+
+as tabelas são criadas quando o comando é executado
+
+//criar rotas
+//fazer FRONT
+
+//para parte do PERFIL
+//ferramenta par popular no banco seeder (semeadores de dados) (deixa pronto algo comum) (coloca grupo de dados)(mais fácil para recarregar o banco)
+php artisan make:seeder SeederTablePermissions
+
+use Spartie\Permission\Models\Permission -> para permissão de usuário
+
+run() {
+
+}
+
+executar o seeder -> php artisan db:seed --clase-que-quer-roda=nome-da-seeder (--class=SeederTablePermissions)
+pluck pegou a col ID
+depois fazer um SELECT
+teste@gmail.com
+12345678
+
+------
+18-10
+importante para segurança
+Acesso diferenciados de acordo com o perfil
+rest / *ful (mesma coisa
+
+diz o nome do perfil e o que ele pode acessar
+atribuir perfil p/ usuário
+acessar
+colocar comandos na views para permitir ou não o acesso
+
+o crud aparece mas a funcionalidas não (devido ao can / endcand) -> está assim para evitar ficar na URL
+controlar no BACK E FRONT
+
+testes2@yahoo.com
+12345678
+
+==
+
+API -> application programing interface (interface de programação de aplicação)(interface p/ a apliacação) -> UI / (interface para o usuário)
+para um aplicação possa trocar dados com outra mesmo que ela seja desenvolvidada em outra aplicação
+
+rodam sobre o protocolo HTTP
+possui varios padrões na web api -> / padrão baseados em métodos HTTPS (POST / GET)
+CRUD -> c/ api
+POST -> create
+GET -> read
+PUT -> update/replace
+PATCH -> update/modify
+DELETE - deleta
+
+trabalhar com códigos
+
+códigos de status
+1xx -> códigos informacionais
+2xx -> sucesso
+3xx -> redirecionamento
+4xx -> erros do cliente
+5xx -> erros do servidor
+
+método RESTful -> mais popular hoje em dia RESTFUL (mais simples e fácil de trabalhar) (a forma de trabalhar é em JSON, que é muito mais fácil)
+SOAP -> mais antigo
+transferencia de estado representacional
+
+padrão soup ou rest padrões gerais que encontram
+
+
+-------
+25-10
+
+COMUM Usar dois padrões -> soap e rest
+
+api para cadastrar vendedores
+
+php artisan make:controller VendedoresApiController --resource
+
+model vendedores
+
+use App\Models\Vendedores;
+
+retornar todos os vendedores
+
+no index
+
+return Vendedores:all();
+
+criar rota para a API
+
+api.php -> Route:prefix('v1')->group(static function() { //prefixo para todos os 'end points'
+	Route:get('/vendedores', [App\Http\Controller\VendedoresApiController::class, 'index']; //chama método index da classe api controller
+});
+
+//não pode mudar, recebe novos campos
+//pois outro programa interage com a API
+
+//separar em versões
+
+interface p/ outro programa
+
+//criar as requisições
+thunder client
+
+//passar a url
+http://localhost:8000/api/v1/vendedores
+assim pe possivel
+
+
+padrão soup ou rest padrões gerais que encontram
+phpartisan serve incializa um serve web
+
+
+post para criar
+
+mandar os dados
+
+o numero é o id se der certo deve apagar
+não manda o id no body
