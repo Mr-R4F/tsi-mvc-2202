@@ -8,8 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles; //para o controle de acesso por permissão.
+use Tymon\JWTAuth\Contracts\JWTSubject; //colocar isso
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject //colocar isto /implements jwt...
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles; //add HasRoles (a classe autenticável também vai usar a classe `Role`)
 
@@ -42,4 +43,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //fazer isso
+    public function getJWTIdentifier() {
+        return $this->getKey(); //retornar a chave
+    }
+
+    public function getJWTCustomClaims() {//retorna nada (vetor)
+        return []; //retorna vetor
+    }
 }

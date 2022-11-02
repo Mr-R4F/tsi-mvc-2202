@@ -198,3 +198,33 @@ mandar os dados
 
 o numero é o id se der certo deve apagar
 não manda o id no body
+
+--- 01-11
+JWT -> json web tocket -> com as credenciais joga num endpoint consegue o token e consegue fazer a requisição com os endpoints
+-> para controle de acesso na API
+
+composer require tymon/jwt-auth:dev-develop --prefer-source -> para instalar o JWT
+configurações para pacote tymon -> php artisan vendor:publish (vai dar uma lista, e deve-se escolher o 10 (tymon) enter
+tymon -nome
+gerar chave privada -> php artisan jwt:secret
+middleware para controle de perfil -> kernel.php
+
+vendor -> src -> contracts interface jwt
+
+models -> user -> use Tymon\JWTAuth\Contracts\JWTSubject;
+
+a´pos ->criar controller para criar o token
+php artisan make:controller APIController
+e editar a controller
+
+após criar rotas (para a aplicação)
+
+//criar chamada na api
+
+post por
+
+por padrões o php usa até 128 mb de RAM.
+
+mandar o token na requisição auth -> bearer (colar o token aqui)
+
+recebe token para conseguir fazer as requisições
